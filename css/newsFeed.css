@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.main-side {
+    width: 25%;
+    min-width: 250px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.side-card-header {
+    font-size: 1.2em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #0073e6;
+}
+
+.side-card-body p {
+    font-weight: 500;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+.side-card-body input[type="search"],
+.side-card-body input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.side-card-body input[type="button"] {
+    background-color: #0073e6;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.side-card-body input[type="button"]:hover {
+    background-color: #005bb5;
+}
+
+.main-container {
+    width: 70%;
+    min-width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.main-container header h1 {
+    font-size: 2em;
+    color: #0073e6;
+}
+
+.main-container header p {
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.main-container header ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    color: #333;
+}
+
+.main-container header ul li {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.main-container a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.main-container a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .main-side, .main-container {
+        width: 100%;
+    }
+}

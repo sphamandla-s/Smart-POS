@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+    <meta charset="utf-8" />
+
+    <!--
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+    <!-- or -->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+</head>
+
+<body onload="clearSession()">
+
+    <div class="main-content">
+
+        <nav class="navbar container">
+            <h2 class="logo"><a href="/index.html">Smart-POS</a></h2>
+
+            <ul class="navbar-links">
+                <li class="nav-item">
+                    <a class="nav-link active" onclick="NewsFeed()">News Feed</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="FindItem()">Find Item</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="FindIndustry()">Find Store</a>
+                </li>
+            </ul>
+
+            <i class='bx bx-hot'></i>
+
+            <div class="navbar-auth">
+                <a href="personalLoggin.html" class="auth-link"><i class='bx bx-hot'></i>Personal</a>
+                <a href="businessLoggin.html" class="auth-link">Business</a>
+            </div>
+
+            <span class="navbar-toggle">&#9776;</span>
+
+        </nav>
+
+
+
+
+        
+            <div class="frame-container" id="frame-container">
+                <iframe allowfullscreen class="responsive-iframe" src="newsFeed.html" name="iframe_index"
+                    title="SmartPOS"></iframe>
+            </div>
+    
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <div class="footer-card">
+                <p>Copyright &copy;MkokoComputers (Pty) Ltd.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+    <script>
+        window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>

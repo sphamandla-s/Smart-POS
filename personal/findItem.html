@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body>
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Filter
+                <span class="material-icons">zoom_in</span>
+            </div>
+            <div class="side-card-body">
+                <p>Itemname</p>
+                <input type="search" id="itemname" aria-describedby="emailHelp">
+                <p>Continent</p>
+                <input type="search" id="continents" aria-describedby="emailHelp">
+                <p>Country</p>
+                <input type="search" id="countries" aria-describedby="emailHelp">
+                <p>Province/State</p>
+                <input type="search" id="provinces" aria-describedby="emailHelp">
+                <p>Town</p>
+                <input type="search" id="towns" aria-describedby="emailHelp">
+                <p>Location</p>
+                <input type="search" id="locations" aria-describedby="emailHelp">
+                <br/>
+                <p><input type="submit" value="Search" onclick="validateForItem()"></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <header>
+            <h1 style="margin-bottom: 0.5em;">For Specific Item</h1>
+            <p>Enter itemname and click search for global search</p>
+            <p>Or put on the filter for specific location, the click search</p>
+            <h1 style="margin-bottom: 0.5em;">For All Items</h1>
+            <p>Keep all the inputs blank and click search</p>
+        </header>
+    </div>
+</section>
+<script type="text/javascript" src="../js/personal/FindItem.js">
+</script>
+</body>
+</html>

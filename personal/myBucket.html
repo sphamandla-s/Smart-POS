@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="/img/icon.png" type = "image/x-icon">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="../css/min.css"/>
+    <link rel="stylesheet" type="text/css" href="../css/custom.css">
+
+</head>
+<body onload="fetchList()">
+<br/>
+<div id="menu">
+    <table align="center" width="40%" border="0">
+        <tr>
+            <td align="center"><input type="button" value="Refresh" class="button" onclick="fetchList()"></td>
+            <td align="center"><input type="button" value="Place Order(s)" class="button" onclick="craeteOrder()"></td>
+        </tr>
+    </table>
+</div>
+<div id="resp" align="center">
+
+</div>
+<div id="bucket-list">
+</div>
+</body>
+<script type="text/javascript" src="../js/personal/MyBucket.js">
+</script>
+</html>

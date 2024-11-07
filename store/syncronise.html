@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="/img/icon.png" type = "image/x-icon">
+</head>
+<body onload="syncronise()">
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Menu
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="side-card-body">
+                <p><a onclick="syncronise()" style="cursor: pointer; cursor: hand;">Syncronise</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <!--end of form-->
+    </div>
+</section>
+<script type="text/javascript" src="../js/store/syncronise.js"></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+</html>

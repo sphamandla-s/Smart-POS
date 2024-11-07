@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <!-- <link rel="stylesheet" type="text/css" href="css/min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/personal-auth.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body>
+    <nav class="navbar container">
+    <h2 class="logo"><a href="/index.html">Smart-POS</a></h2>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="personalLoggin.html">Personal</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="form-layout">
+    <form class="login-form">
+        <header>
+            <!-- <div>
+                <span class="icon material-icons">login</span>
+            </div> -->
+            <h1 class="login-header">
+                Welcome Back! <br />
+                <span class="header">
+                        Log in to your <strong>Store</strong> 
+                    </span>
+            </h1>
+        </header>
+        <div class="igroup">
+            <label for="storecode">StoreCode</label>
+            <input type="text" id="storecode" aria-describedby="emailHelp">
+            <!-- <span class="material-icons">business</span> -->
+        </div>
+        <div class="igroup">
+            <label for="username">Username</label>
+            <input type="text" id="username" aria-describedby="emailHelp">
+            <!-- <span class="material-icons">person</span> -->
+        </div>
+        <div class="igroup">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" id="exampleInputPassword1">
+        </div>
+        <input type="submit" value="Login" onclick="SendBussinessLoggin()">
+    </form>
+</div>
+<div id = "resp" class="error-resp" align="center">
+</div>
+<br/>
+<div class="footer">
+    <div class="footer-column">
+        <div class="footer-card">
+            <p>Copyright &copy;MkokoComputers (Pty) Ltd.</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/Loggin.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+
+</body>
+</html>

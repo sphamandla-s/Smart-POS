@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:title" content="">
+    <meta property="og:type" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="">
+   
+    <meta charset="utf-8" />
+    <!--
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body onload="CreateDailySales()">
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Menu
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="side-card-body">
+                <p><a onclick="CreateDailySales()" class="my-link">Sales</a></p>
+                <p><a onclick="CreateDailyGrouping()" style="cursor: pointer; cursor: hand;">SalesGrouping</a></p>
+                <p><a onclick="CreateDailyUserSummary()" style="cursor: pointer; cursor: hand;">SalesSummary</a></p>
+                <p><a onclick="createDailyProfit()" style="cursor: pointer; cursor: hand;">Profit</a></p>
+                <p><a onclick="CreateDailyBank()" class="my-link">Bank</a></p>
+                <p><a onclick="createDailyBankSummary()" class="my-link">BankSummary</a></p>
+                <p><a onclick="createIncome()" class="my-link">Income</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <!--end of form-->
+    </div>
+</section>
+<script type="text/javascript" src="../js/store/Reports.js">
+</script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+</html>

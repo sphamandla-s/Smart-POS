@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+     
+    <!-- <link rel="stylesheet" type="text/css" href="css/min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" /> -->
+    <link rel="stylesheet" type="text/css" href="css/personal-auth.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body>
+<nav class="navbar container">
+    <h2 class="logo"><a href="/index.html">Smart-POS</a></h2>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="businessLoggin.html">Business</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+
+<div class="form-layout">
+    <form class="login-form">
+        <header>
+            <!-- <div>
+                <span class="icon material-icons">login</span>
+            </div> -->
+            <h1 class="login-header">
+                Welcome Back! <br />
+                <span class="header">
+                        Sign in to your <strong>Personal</strong> account
+                    </span>
+            </h1>
+        </header>
+        <div class="igroup">
+        <label for="exampleInputEmail1">Username</label>
+        <input type="text" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <!-- <span class="material-icons">person</span> -->
+</div>
+<div class="igroup">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" id="exampleInputPassword1">
+    <a class="reset-password" href="">forgot password ?</a>
+</div>
+<input type="submit" value="Login" onclick="SendPersonalLoggin()">
+        <!--
+<p>
+    Dont have an account ? <span><a role="button" onclick="signUp()" href="personalSignUp.html">Create an
+                        account</a></span>
+</p>
+-->
+</form>
+</div>
+<div class="footer">
+    <div class="footer-column">
+        <div class="footer-card">
+            <p>Copyright &copy;2021 MkokoComputers (Pty) Ltd.</p>
+        </div>
+    </div>
+
+</div>
+<!--
+<script>
+    function ReplaceUrl(){
+        window.history.pushState("object or string", "Title", sessionStorage.getItem("url"));
+    }
+    function signUp() {
+        window.open('personalSignUp.html', '_self');
+    }
+    /**
+    function Loggin() {
+        var xhttp = new XMLHttpRequest();
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("exampleInputPassword1").value;
+        var storecode = document.getElementById("storecode").value
+        var url = "http://localhost:2019/api/v1/personal/loggin?emailorcell=mkokosb%40gmail.com&password=try123...";
+        xhttp.onreadystatechange = function() {
+            if (this.status == 200) {
+                var response = xhttp.responseText;
+                var obj = JSON.parse(response);
+                if (obj.success == true) {
+                    var redirectWindow = window.open('/store/businessHome.html', '_self');
+                } else {
+                    document.getElementById("main-container").innerHTML = "<p align='center'>Incorrect Loggin details</p>";
+                }
+            }else{
+                var rep = "Status: " + obj.status + "</br>Code :" + obj.error;
+                document.getElementById("main-container").innerHTML = rep;
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+
+    **/
+    function Loggin() {
+        var xhttp = new XMLHttpRequest();
+        var emailcell = document.getElementById("exampleInputEmail1").value;
+        var password = document.getElementById("exampleInputPassword1").value;
+        var url = sessionStorage.getItem("host") + "/api/v1/personal/loggin?emailorcell="+
+            emailcell + "&password="+ password;
+        var rep;
+        console.log(url);
+        xhttp.onreadystatechange = function() {
+            if (this.status == 200) {
+                var response = xhttp.responseText;
+                var obj = JSON.parse(response);
+                if (obj.success == true) {
+                    sessionStorage.setItem("emailcell", emailcell);
+                    var redirectWindow = window.open('/personal/personalHome.html', '_self');
+                } else {
+                    //alert("Incorrect Loggin Details");
+                    //document.getElementById("resp").innerHTML = "<p align='center'>Incorrect Loggin details</p>";
+                }
+            }else{
+                //var response = xhttp.responseText;
+                //var obj = JSON.parse(response);
+                //var resp = "";
+                //alert("Incorrect Loggin Details!");
+                //alert("Incorrect Loggin Details");
+            }
+        };
+        xhttp.open("GET", url, true);
+        xhttp.send();
+    }
+
+</script>
+-->
+<script type="text/javascript" src="js/Loggin.js"></script>
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+</html>

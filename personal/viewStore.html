@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body onload="myload()">
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Filter
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="side-card-body">
+                <p><a onclick="myload()" style="cursor: pointer; cursor: hand;">StockItems</a></p>
+                <p><a onclick="ViewSpecials()" style="cursor: pointer; cursor: hand;">Specials</a></p>
+                <p><a onclick="ViewMenus()" style="cursor: pointer; cursor: hand;">Menus</a></p>
+                <p><a onclick="Contacts()" style="cursor: pointer; cursor: hand;">Contact Us</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <header>
+            <h1 style="margin-bottom: 0.5em;">For Processing all results</h1>
+            <p>I will be showing all for every touch</p>
+            <ul style="font-size: 18px;">
+                <li>News Feed</li>
+                <li>Find Items</li>
+                <li>Find Industry</li>
+            </ul>
+            <p>We'd love to hear from you, if you have any questions or feedback <a href="">please let us know!</a>
+                To get going fast follow the prompts in the grey highlighted section below.</p>
+        </header>
+    </div>
+</section>
+<script type="text/javascript" src="../js/personal/ViewStore.js">
+</script>
+</body>
+</html>

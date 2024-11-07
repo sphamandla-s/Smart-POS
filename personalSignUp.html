@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    
+    <link rel="stylesheet" type="text/css" href="css/min.css" />
+    <link rel="stylesheet" type="text/css" href="css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="index.html">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="personalLoggin.html">Personal</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="form-layout">
+    <form class="login-form">
+        <header>
+            <div>
+                <span class="icon material-icons">login</span>
+            </div>
+            <h1 class="login-header">
+                Sign Up
+                <span class="header">
+                        Create a Account
+                    </span>
+            </h1>
+        </header>
+        <div class="igroup">
+            <label for="firstname">Firstname</label>
+            <input type="text" id="firstname" aria-describedby="emailHelp">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" aria-describedby="emailHelp">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="email">Email</label>
+            <input type="email" id="email" aria-describedby="emailHelp">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="cell">Cell</label>
+            <input type="text" id="cell" aria-describedby="emailHelp">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="password">Password</label>
+            <input type="password" id="password" aria-describedby="exampleInputPassword1">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="confirmPassword">ConfirmPassword</label>
+            <input type="password" id="confirmPassword" aria-describedby="exampleInputPassword1">
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <select name="gender" id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+            <span class="material-icons">non</span>
+        </div>
+        <div class="igroup">
+            <label for="birthday">Birthday</label>
+            <input type="date" id="birthday" name="birthday">
+            <span class="material-icons">non</span>
+        </div>
+        <input type="submit" value="Sign Up" onclick="Validate()">
+    </form>
+</div>
+<br/>
+<div class="error-resp" id="error-resp" align="center"></div>
+<div class="footer">
+    <div class="footer-column">
+        <div class="footer-card">
+            <p>Copyright &copy;MkokoComputers (Pty) Ltd.</p>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/PersonSignUp.js">
+</script>
+<script type="text/javascript" src="js/HttpRequest.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/boot2.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+</body>
+</html>

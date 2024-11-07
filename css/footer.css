@@ -1,0 +1,26 @@
+.footer {
+    background-color: #010120;
+    border-top: 1px solid #f3d192;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 0.9rem;
+    position: relative; 
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-column {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.footer-card {
+    padding: 15px;
+    color: #f3d192;
+}
+
+.footer p {
+    margin: 0;
+}

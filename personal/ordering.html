@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="/img/icon.png" type = "image/x-icon">
+</head>
+<body>
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Filter
+                <span class="material-icons">menu</span>
+            </div>
+            <div class="side-card-body">
+                <p><a onclick="MyBucket()" style="cursor: pointer; cursor: hand;">Bucket</a></p>
+                <p><a onclick="PendingOrders()" style="cursor: pointer; cursor: hand;">Pending Orders</a></p>
+                <p><a onclick="FetchInProgress()" style="cursor: pointer; cursor: hand;">In-Progress Orders</a></p>
+                <p><a onclick="FetchHistory()" style="cursor: pointer; cursor: hand;">Orders History</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <header>
+            <h1 style="margin-bottom: 0.5em;">Creating Order(s)</h1>
+            <p>Go bucket and click Create order to move all the items</p>
+            <p>Pending orders according to respective businesses</p>
+            <h1 style="margin-bottom: 0.5em;">Placing Order</h1>
+            <p>Go to pending orders and click on Send Order</p>
+        </header>
+    </div>
+
+</section>
+<script type="text/javascript" src="../js/personal/Ordering.js">
+</script>
+</body>
+</html>

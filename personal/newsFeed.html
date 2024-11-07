@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="/css/min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <title>Smart-POS | MkokoComputers</title>
+    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+</head>
+<body onload="Validate();">
+<section class="main">
+    <div class="main-side">
+        <div class="side-card">
+            <div class="side-card-header">
+                Filter
+                <span class="material-icons">zoom_in</span>
+            </div>
+            <div class="side-card-body">
+                <p>Continent</p>
+                <input type="search" id="continent" aria-describedby="info">
+                <p>Country</p>
+                <input type="search" id="country" aria-describedby="info">
+                <p>Province/State</p>
+                <input type="search" id="province" aria-describedby="info">
+                <p>Town</p>
+                <input type="search" id="town" aria-describedby="info">
+                <p>Location</p>
+                <input type="search" id="location" aria-describedby="info">
+                <br/>
+                <p><input type="submit" value="Search" onclick="Validate()"></p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="main-container">
+        <header>
+            <h1 style="margin-bottom: 0.5em;">For Processing all results</h1>
+            <p>I will be showing all for every touch</p>
+            <ul style="font-size: 18px;">
+                <li>News Feed</li>
+                <li>Find Items</li>
+                <li>Find Industry</li>
+            </ul>
+            <p>We'd love to hear from you, if you have any questions or feedback <a href="">please let us know!</a>
+                To get going fast follow the prompts in the grey highlighted section below.</p>
+        </header>
+    </div>
+</section>
+<script type="text/javascript" src="../js/personal/NewsFeed.js">
+</script>
+</body>
+</html>
