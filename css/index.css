@@ -39,7 +39,7 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgb(1, 1, 32);
+    background-color: #010120;
     color: white;
     padding: 20px 0;
     transition: all .50s ease-in;
@@ -191,6 +191,8 @@ nav {
         color: white;
     }
 
+
+ 
     .navbar-links a {
         display: block;
         padding: 0px 25px;

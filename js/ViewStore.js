@@ -231,56 +231,57 @@ function menus(){
         })
 }
 
-async function sendLoad(){    
+async function sendLoad() {    
     const obj = await load();   
-    //console.log(obj);    
-    if (obj.success == true) {
-        pagesAll = Math.ceil(obj.count / payload)
-            rep = "<table class='my-paging' border='0' width='100%' cellpadding='10'>";
-            rep += "<tr>";
-            rep += "<td align='left'>Page " + counterAll + " of " + pagesAll;
-            rep += "<td align='left'></td>";
-            rep += "<td align='right'><h5><a onclick='Previous()' class='my-link'>&laquo Previous</a></h5></td>";
-            rep += "<td align='right'><h5><a onclick='Next()' class='my-link'>Next &raquo</a></h5></td>";
-            rep += "</tr>";
-            rep += "</table>";
-            rep += "<table class=\"table-general\" border=\"2\" width=\"100%\">\n" +
-                "<tr>"
-            var c;
-            var row = 0;
-            var len = obj.data.length;
-            for(c = 0; c < len; c++){
-                if(obj.data[c].picture != null && obj.data[c].picture != 'undefined'){
-                    if(row > 2){
-                        rep += "</tr><tr>";
-                        row = 0;
-                    }
-                    rep += "<td align='center'><img src='"+ obj.data[c].picture +"' alt='photo' width='150px' height='180px'>";
-                    rep += "<br/><b>" + obj.data[c].department ;
-                    rep += "</b>";
-                    rep += "<br/>" +  obj.data[c].category;
-                    rep += "<br/>" +  obj.data[c].itemname;
-                    rep += "<br/>Price ZAR: " +  obj.data[c].sellingprice;
-                    rep += " | In Stock: " +  obj.data[c].quantity;
-                    row++;
-                }
+
+    if (obj.success) {
+        const pagesAll = Math.ceil(obj.count / payload);
+        let rep = `
+            <div class="pagination">
+                <span>Page ${counterAll} of ${pagesAll}</span>
+                <div>
+                    <button class="pagination-button" onclick="Previous()" ${counterAll === 1 ? 'disabled' : ''}>&laquo; Previous</button>
+                    <button class="pagination-button" onclick="Next()" ${counterAll === pagesAll ? 'disabled' : ''}>Next &raquo;</button>
+                </div>
+            </div>
+            <div class="card-grid">
+        `;
+
+        obj.data.forEach(item => {
+            if (item.picture) {
+                rep += `
+                    <div class="card">
+                        <img src="${item.picture}" alt="photo" class="card-image" />
+                        <div class="card-body">
+                            <h3 class="card-title">${item.itemname}</h3>
+                            <p class="card-text">
+                                <b>Department:</b> ${item.department} <br/>
+                                <b>Category:</b> ${item.category} <br/>
+                                <b>Price:</b> ZAR ${item.sellingprice} <br/>
+                                <b>In Stock:</b> ${item.quantity}
+                            </p>
+                        </div>
+                    </div>
+                `;
             }
-            rep += "</tr>";
-            rep += "</table>";
-            rep += "<table class='my-paging' border='0' width='100%' cellpadding='10'>";
-            rep += "<tr>";
-            rep += "<td align='left'>Page " + counterAll + " of " + pagesAll;
-            rep += "<td align='left'></td>";
-            rep += "<td align='right'><h5><a onclick='Previous()' class='my-link'>&laquo Previous</a></h5></td>";
-            rep += "<td align='right'><h5><a onclick='Next()' class='my-link'>Next &raquo</a></h5></td>";
-            rep += "</tr>";
-            rep += "</table>";
-            document.getElementById("main-container").innerHTML = rep;
-        } else {
-            rep = "Success: " + obj.success + " Code: " + obj.code + "</br>Error Message: " + obj.data;
-            document.getElementById("main-container").innerHTML = rep;
-        }    
+        });
+
+        rep += `</div>
+            <div class="pagination">
+                <span>Page ${counterAll} of ${pagesAll}</span>
+                <div>
+                    <button class="pagination-button" onclick="Previous()" ${counterAll === 1 ? 'disabled' : ''}>&laquo; Previous</button>
+                    <button class="pagination-button" onclick="Next()" ${counterAll === pagesAll ? 'disabled' : ''}>Next &raquo;</button>
+                </div>
+            </div>`;
+
+        document.getElementById("main-container").innerHTML = rep;
+    } else {
+        const errorMessage = `Success: ${obj.success}, Code: ${obj.code} <br/> Error Message: ${obj.data}`;
+        document.getElementById("main-container").innerHTML = errorMessage;
+    }    
 }
+
 function load(){
     const url = sessionStorage.getItem("host") + "/api/v1/stockitems/view/store?storecode="+
         sessionStorage.getItem("storecode") + "&start="+
@@ -297,3 +298,16 @@ function load(){
             console.error("error:", error.message);
         })
 }
+
+
+function toggleSidebar() {
+        const sidebar = document.querySelector('.main-side');
+        const mainContainer = document.querySelector('.main-container');
+        sidebar.classList.toggle('open');
+
+        if (sidebar.classList.contains('open')) {
+            mainContainer.style.marginLeft = '260px';
+        } else {
+            mainContainer.style.marginLeft = '0';
+        }
+    }

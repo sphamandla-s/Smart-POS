@@ -3,44 +3,47 @@ function viewStore(id) {
     var redirectWindow = window.open('viewStore.html', '_self');
 }
 
-async function sendFilterIndustry(){
+async function sendFilterIndustry() {
     document.getElementById("main-container").innerHTML = `
     <div class="loader-container">
         <div class="loader"></div>
-    </div>`;     const obj = await filterIndustry();   
-    //console.log(obj)
-    if(obj.success == true){
-        if(obj.count > 0){
-            rep = "<table class=\"table-general\" border=\"2\" width=\"100%\">\n" +
-                    "<tr>"
-                var c;
-                var row = 0;
-                for(c = 0; c < obj.count; c++){
-                    if(row > 3){
-                        rep += "</tr><tr>";
-                        row = 0;
-                    }
-                    rep += "<td><h4>" + obj.data[c].name ;
-                    rep += "</h4><h6>";
-                    rep += " ( ";
-                    rep +=  obj.data[c].counter;
-                    rep += " )"
-                    rep += "</h6></td>";
-                    row++;
-                }
-                rep += "</tr>";
-                rep += "</table>";
-                document.getElementById("main-container").innerHTML = rep;
-            }else{
-                document.getElementById("main-container").innerHTML = "<p class=no-record-response>No record found</p>";
-            }        
+    </div>`;
+
+    const obj = await filterIndustry();
+    let rep = "";
+
+    if (obj.success === true) {
+        if (obj.count > 0) {
+            let pages = Math.ceil(obj.count / payload);
+            let pageInfo = `<div class="pagination">
+                <span>FindStore Page ${counter + tmp} of ${pages}</span>
+                <div class="page-controls">
+                    <a onclick="Previous()" class="my-link">&laquo; Previous</a>
+                    <a onclick="Next()" class="my-link">Next &raquo;</a>
+                </div>
+            </div>`;
+            rep += pageInfo
+            rep += `<div class="cards">`;
+
+            obj.data.forEach((industry) => {
+                rep += `
+                <div class="card">
+                    <h4>${industry.name}</h4>
+                    <h6>(${industry.counter})</h6>
+                </div>`;
+            });
+
+            rep += `</div>`;
+            document.getElementById("main-container").innerHTML = rep;
         } else {
-        rep = "<p class=no-record-response>Success: " + obj.success + " Code: " + obj.code + "</br>Error Message: " + obj.data+"</p>";
+            document.getElementById("main-container").innerHTML = "<p class='no-record-response'>No record found</p>";
+        }
+    } else {
+        rep = `<p class='no-record-response'>Success: ${obj.success} Code: ${obj.code}<br>Error Message: ${obj.data}</p>`;
         document.getElementById("main-container").innerHTML = rep;
     }
-        
-        
 }
+
 function filterIndustry(){
     var continent = document.getElementById("continent").value;
     var country = document.getElementById("country").value;

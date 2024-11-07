@@ -3,8 +3,8 @@ function clearSession(){
     setHost();
 }
 function setHost() {
-    sessionStorage.setItem("host","http://SERVER:2021");
-    //sessionStorage.setItem("host","http://102.130.118.167:2021");
+    // sessionStorage.setItem("host","http://SERVER:2021");
+    sessionStorage.setItem("host","http://102.130.118.167");
     
     sessionStorage.setItem("url","");
     window.history.pushState({},null, sessionStorage.getItem('url'));
