@@ -50,7 +50,7 @@ body::-webkit-scrollbar-thumb:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    max-height: 650px;
+    min-height: 650px;
 }
 
 .side-card-header {
@@ -79,6 +79,18 @@ body::-webkit-scrollbar-thumb:hover {
     border: 1px solid #ddd;
     border-radius: 5px;
     font-size: 1em;
+}
+
+
+.side-card-body select {
+    
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+    
 }
 
 .side-card-body input[type="button"],

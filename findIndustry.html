@@ -1,62 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+
     <!-- <link rel="stylesheet" type="text/css" href="css/min.css" />
     <link rel="stylesheet" type="text/css" href="css/custom.css" /> -->
     <link rel="stylesheet" type="text/css" href="css/iframe-shared.css" />
     <title>Smart-POS | MkokoComputers</title>
-    <link rel = "icon" href ="img/icon.png" type = "image/x-icon">
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
 </head>
+
 <body onload="sendFilterIndustry()">
-<section class="main">
-    <div class="main-side">
-        <div class="side-card">
-            <div class="side-card-header">
-                Filter
-                <span class="material-icons">zoom_in</span>
-            </div>
-            <div class="side-card-body">
-                <!--<p>Continent</p>-->
-                <input type="hidden" id="continent" value="Africa" aria-describedby="emailHelp">
-                <p>Country</p>
-                <input type="search" id="country" aria-describedby="emailHelp">
-                <p>Province/State</p>
-                <input type="search" id="province" aria-describedby="emailHelp">
-                <p>Town</p>
-                <input type="search" id="town" aria-describedby="emailHelp">
-                <p>Location</p>
-                <input type="search" id="location" aria-describedby="emailHelp">
-                <br/>
-                <p>
-                    <input type="submit" value="Search" onclick="sendFilterIndustry()">
-                    <input type="submit" value="List" onclick="sendListFilterIndustry()">
-                </p>
+    <section class="main">
+        <div class="main-side">
+            <div class="side-card">
+                <div class="side-card-header">
+                    Filter
+                    <!-- <span class="material-icons">zoom_in</span> -->
+                </div>
+                <div class="side-card-body">
+                    <p>Continent</p>
+                    <select id="continent" onchange="loadCountries()" aria-describedby="info">
+                        <option value="">Select Continent</option>
+                    </select>
+
+                    <p>Country</p>
+                    <select id="country" onchange="loadProvinces()" aria-describedby="info" disabled>
+                        <option value="">Select Country</option>
+                    </select>
+
+                    <p>Province/State</p>
+                    <select id="province" onchange="loadTowns()" aria-describedby="info" disabled>
+                        <option value="">Select Province/State</option>
+                    </select>
+
+                    <p>Town</p>
+                    <select id="town" onchange="loadLocations()" aria-describedby="info" disabled>
+                        <option value="">Select Town</option>
+                    </select>
+
+                    <p>Location</p>
+                    <select id="location" aria-describedby="info" disabled>
+                        <option value="">Select Location</option>
+                    </select>
+                    <br />
+                    <p>
+                        <input type="submit" value="Search" onclick="sendFilterIndustry()">
+                        <input type="submit" value="List" onclick="sendListFilterIndustry()">
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="main-container" id="main-container">
-        <header>
-            <h1 style="margin-bottom: 0.5em;">For Processing all results</h1>
-            <p>I will be showing all for every touch</p>
-            <ul style="font-size: 18px;">
-                <li>News Feed</li>
-                <li>Find Items</li>
-                <li>Find Industry</li>
-            </ul>
+        <div class="main-container" id="main-container">
+            <header>
+                <h1 style="margin-bottom: 0.5em;">For Processing all results</h1>
+                <p>I will be showing all for every touch</p>
+                <ul style="font-size: 18px;">
+                    <li>News Feed</li>
+                    <li>Find Items</li>
+                    <li>Find Industry</li>
+                </ul>
 
-            <p>We'd love to hear from you, if you have any questions or feedback <a href="">please let us know!</a>
-                To get going fast follow the prompts in the grey highlighted section below.</p>
-        </header>
-    </div>
+                <p>We'd love to hear from you, if you have any questions or feedback <a href="">please let us know!</a>
+                    To get going fast follow the prompts in the grey highlighted section below.</p>
+            </header>
+        </div>
 
-</section>
-<!--
+    </section>
+    <!--
 <script type="text/javascript">
     var tmp = 1;
     var payload = 6;
@@ -780,6 +796,7 @@
     }
 </script>
 -->
-<script type="text/javascript" src="js/FindIndustry.js"></script>
+    <script type="text/javascript" src="js/FindIndustry.js"></script>
 </body>
+
 </html>

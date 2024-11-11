@@ -59,52 +59,40 @@ function ReplaceUrl(){
 }
 */
 
-async function SendBussinessLoggin(){
-    console.log(sessionStorage.getItem("host"));
+async function SendBussinessLoggin() {
+    console.log("Attempting to log in...");
     const obj = await BussinessLoggin();
-    if(obj.success == true && obj.code == 200){
-        sessionStorage.setItem("username",obj.data.username);
-        sessionStorage.setItem("storecode", obj.data.storeCode);
-        var redirectWindow = window.open('/store/business.html', '_self');
-    }else{
-        document.getElementById("resp").innerHTML = "<p align='center'>Incorrect Loggin details</p>";
-    }
 
+    if (obj && obj.success === true && obj.code === 200) {
+        sessionStorage.setItem("username", obj.data.username);
+        sessionStorage.setItem("storecode", obj.data.storeCode);
+        window.location.href = '/store/business.html';
+    } else {
+        document.getElementById("resp").innerHTML = "<p align='center'>Incorrect Login details</p>";
+    }
 }
-function BussinessLoggin(){
-    var username = document.getElementById("username").value;
-    var password = document.getElementById("exampleInputPassword1").value;
-    var storecode = document.getElementById("storecode").value
-    const url = sessionStorage.getItem("host") + "/api/v1/system/users/loggin?storecode=" + storecode +"&username="
-        + username + "&pin="+ password;
-    console.log(url);
-    return fetch(url,{
+
+function BussinessLoggin() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("exampleInputPassword1").value;
+    const storecode = document.getElementById("storecode").value;
+    const url = `${sessionStorage.getItem("host")}/api/v1/system/users/loggin?storecode=${storecode}&username=${username}&pin=${password}`;
+
+    console.log(`Fetching from URL: ${url}`);
+    return fetch(url, {
         method: "GET",
-        headers: {"Content-Type" : "application/json"}
+        headers: { "Content-Type": "application/json" }
     })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
-    /*
-    return fetch(sessionStorage.getItem("host") + "/api/v1/system/users/loggin?storecode=" + storecode +"&username="
-        + username + "&pin="+ password,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
+    .then(response => {
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
     })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
-     * 
-     */
+    .catch(error => {
+        console.error("Login request failed:", error.message);
+        document.getElementById("resp").innerHTML = "<p align='center'>Error during login attempt. Please try again later.</p>";
+    });
 }
+
 async function SendPersonalLoggin(){
     const obj = await PersonalLoggin();
     //console.log(obj);
@@ -117,19 +105,18 @@ async function SendPersonalLoggin(){
     }
 
 }
-function PersonalLoggin(){
+async function PersonalLoggin(){
     var emailcell = document.getElementById("exampleInputEmail1").value;
     var password = document.getElementById("exampleInputPassword1").value;
-    return fetch(sessionStorage.getItem("host") + "/api/v1/personal/loggin?emailorcell="+
-        emailcell + "&password="+ password,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/personal/loggin?emailorcell=" +
+            emailcell + "&password=" + password, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }

@@ -29,38 +29,32 @@
         </ul>
     </div>
 </nav>
+
 <div class="form-layout">
-    <form class="login-form">
-        <header>
-            <!-- <div>
-                <span class="icon material-icons">login</span>
-            </div> -->
-            <h1 class="login-header">
-                Welcome Back! <br />
-                <span class="header">
-                        Log in to your <strong>Store</strong> 
-                    </span>
-            </h1>
-        </header>
+    <form class="login-form" onsubmit="event.preventDefault(); SendBussinessLoggin();">
+        <h1 class="login-header">
+            Welcome Back! <br />
+            <span class="header">
+                    Log in to your <strong>Store</strong> 
+                </span>
+        </h1>
         <div class="igroup">
             <label for="storecode">StoreCode</label>
-            <input type="text" id="storecode" aria-describedby="emailHelp">
-            <!-- <span class="material-icons">business</span> -->
+            <input type="text" id="storecode" required>
         </div>
         <div class="igroup">
             <label for="username">Username</label>
-            <input type="text" id="username" aria-describedby="emailHelp">
-            <!-- <span class="material-icons">person</span> -->
+            <input type="text" id="username" required>
         </div>
         <div class="igroup">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" id="exampleInputPassword1">
+            <input type="password" id="exampleInputPassword1" required>
         </div>
-        <input type="submit" value="Login" onclick="SendBussinessLoggin()">
+        <input type="submit" value="Login">
     </form>
+    <div id="resp" class="error-resp" align="center"></div>
 </div>
-<div id = "resp" class="error-resp" align="center">
-</div>
+
 <br/>
 <div class="footer">
     <div class="footer-column">
