@@ -249,7 +249,6 @@ async function sendLoad() {
 
         obj.data.forEach(item => {
 
-            console.log("item.picture", item.picture)
             if (item.picture) {
                 rep += `
                     <div class="card">
