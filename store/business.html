@@ -1,85 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport"
-          content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="/css/min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <title>Smart-POS | MkokoComputers</title>
-    <link rel = "icon" href ="/img/icon.png" type = "image/x-icon">
+    <link rel="icon" href="/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="/css/index.css" />
 </head>
-<body onload="StockItems()">
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <!--
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" href="#">Home</a>
-            </li>
-            -->
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="StockItems()">StockItems<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="Orders()">Orders<span class="sr-only"></span></a>
-            </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="StoreMessages()">Messages<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="Banking()">Banking<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="Reports()">Reports<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="syncronise()">Synchronization<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="Users()">SystemUsers<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" style="cursor: pointer; cursor: hand;" onclick="Settings()">Settings<span class="sr-only"></span></a>
-            </li>
-        </ul>
-        <div class="dropmenu">
-            <button class="dropbtn" onclick="myFunction()"><span class="material-icons" style="margin:0">person</span>Welcome
-                <span>&blacktriangledown;</span>
-            </button>
-            <div class="dropmenu-content" id="myDropdown">
-                <a style="cursor: pointer; cursor: hand;" onclick="logout()">Logout</a>
+<body>
+
+    <div class="main-content">
+
+        <nav class="navbar container">
+            <ul class="business navbar-links">
+                <!-- <li class="nav-item active"><a class="nav-link" href="/store/business.html" aria-label="Home">Home</a></li> -->
+                <li class="nav-item active"><a class="nav-link" onclick="StockItems()">Stock Items</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="Orders()">Orders</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="StoreMessages()">Messages</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="Banking()">Banking</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="Reports()">Reports</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="syncronise()">Synchronization</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="Users()">System Users</a></li>
+                <li class="nav-item active"><a class="nav-link" onclick="Settings()">Settings</a></li>
+            </ul>
+
+            <div class="logout-btn">
+                <a onclick="logout()">Logout</a>
+            </div>
+
+            <!-- <div class="dropmenu">
+                <button class="dropbtn" onclick="myFunction()">
+                    <span class="material-icons">person</span>Welcome <span>&blacktriangledown;</span>
+                </button>
+                <div class="dropmenu-content" id="myDropdown">
+                    <a onclick="logout()">Logout</a>
+                </div>
+            </div> -->
+            <span class="navbar-toggle">&#9776;</span>
+        </nav>
+
+        <div class="frame-container" id="frame-container">
+            <iframe allowfullscreen class="responsive-iframe" name="iframe_index" title="SmartPOS"></iframe>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <div class="footer-column">
+            <div class="footer-card">
+                <p>&copy; MkokoComputers (Pty) Ltd.</p>
             </div>
         </div>
-    </div>
-</nav>
-<div class="frame-container" id="frame-container">
-    <iframe allowfullscreen class="responsive-iframe" name="iframe_index"
-            title="SmartPOS"></iframe>
-</div>
+    </footer>
 
-<div class="footer">
-    <div class="footer-column">
-        <div class="footer-card">
-            <p>Copyright &copy;MkokoComputers (Pty) Ltd.</p>
-        </div>
-    </div>
-</div>
-
-<script type="text/javascript" src="../js/store/BusinessHome.js">
+    <!-- JavaScript Files -->
     <script type="text/javascript" src="/js/jquery.js"></script>
-<script>
-    window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
-    ga('create', 'UA-XXXXX-Y', 'auto'); ga('set', 'anonymizeIp', true); ga('set', 'transport', 'beacon'); ga('send', 'pageview')
-</script>
-<script src="https://www.google-analytics.com/analytics.js" async></script>
+    <script type="text/javascript" src="../js/store/BusinessHome.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            StockItems();
+        });
+        
+        window.ga = function () {ga.q.push(arguments)}; ga.q = []; ga.l = +new Date;
+        ga('create', 'UA-XXXXX-Y', 'auto');
+        ga('set', 'anonymizeIp', true);
+        ga('set', 'transport', 'beacon');
+        ga('send', 'pageview');
+    </script>
+    <script src="https://www.google-analytics.com/analytics.js" async></script>
+
 </body>
+
 </html>

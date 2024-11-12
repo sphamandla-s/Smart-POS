@@ -153,3 +153,16 @@ function stockDownload(){
             console.error("error:", error.message);
         })
 }
+
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.main-side');
+    const mainContainer = document.querySelector('.main-container');
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        mainContainer.style.marginLeft = '260px';
+    } else {
+        mainContainer.style.marginLeft = '0';
+    }
+}

@@ -257,19 +257,18 @@ async function createAdddItem(barcode) {
     }
 }
 
-function findItem(barcode){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/find/item/id?storecode="+
-            sessionStorage.getItem('storecode')+"&id="+ barcode ,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function findItem(barcode){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/find/item/id?storecode=" +
+            sessionStorage.getItem('storecode') + "&id=" + barcode, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 
@@ -286,25 +285,24 @@ async function sendAdd(){
     }
 }
 
-function add(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/add/quantity?barcode="+
-        document.getElementById("barcode").value +"&invoicenumber="+
-        document.getElementById("invoicenumber").value +"&supplier="+
-        document.getElementById("supplier").value +"&quantity="+
-        document.getElementById("newQuantity").value +"&stockprice="+
-        document.getElementById("stockprice").value +"&sellingprice="+
-        document.getElementById("sellingprice").value +"&username="+
-        sessionStorage.getItem('username')+"&storecode="+ sessionStorage.getItem('storecode'),{
-        method: "PUT",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function add(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/add/quantity?barcode=" +
+            document.getElementById("barcode").value + "&invoicenumber=" +
+            document.getElementById("invoicenumber").value + "&supplier=" +
+            document.getElementById("supplier").value + "&quantity=" +
+            document.getElementById("newQuantity").value + "&stockprice=" +
+            document.getElementById("stockprice").value + "&sellingprice=" +
+            document.getElementById("sellingprice").value + "&username=" +
+            sessionStorage.getItem('username') + "&storecode=" + sessionStorage.getItem('storecode'), {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 function createItem() {
@@ -441,21 +439,18 @@ function previous(){
     sendStockItems();
 }
 async function sendStockItems(){
-    document.getElementById("main-container").innerHTML = "<p class=no-record-response>Fetching Stock....</p>";
+    document.getElementById("main-container").innerHTML = `
+    <div class="loader-container">
+        <div class="loader"></div>
+    </div>`;
     const obj = await stockItems();
     //console.log(obj);
     if(obj.success == true){
         if (obj.count > 0) {
-            rep = "<table class='my-paging' border='0' width='100%' cellpadding='10'>";
-            rep += "<tr>";
             pages = Math.ceil(obj.count / payload);
-            rep += "<td align='left'>StockItems " + counter + " of " + pages;
-            rep += "<td align='left'></td>";
-            rep += "<td align='right'><h5><a onclick='previous()' class='my-link'>&laquo Previous</a></h5></td>";
-            rep += "<td align='right'><h5><a onclick='next()' class='my-link'>Next &raquo</a></h5></td>";
-            rep += "</tr>";
-            rep += "</table>";
-            rep += "<table class='table-filled' border='2' width=\"100%\">";
+
+          
+            rep = "<table class='table-filled' border='2' width=\"100%\">";
             rep += "<tr>";
             rep += "<th>Category</th>";
             rep += "<th>Name</th>";
@@ -501,20 +496,19 @@ async function sendStockItems(){
     }
 }
 
-function stockItems(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/stocklist?storecode="+
-        sessionStorage.getItem('storecode') + "&username="+
-        sessionStorage.getItem('username') + "&start=" + start +"&size=" + size ,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function stockItems(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/stocklist?storecode=" +
+            sessionStorage.getItem('storecode') + "&username=" +
+            sessionStorage.getItem('username') + "&start=" + start + "&size=" + size, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 var id="";
 var startHistory = 0;
@@ -550,15 +544,9 @@ async function sendItemHistory(){
     const obj = await ItemHistory();    
     if(obj.success == true){
         if (obj.count > 0) {
-            rep = "<table class='my-paging' border='0' width='100%' cellpadding='10'>";
-            rep += "<tr>";
             pagesHistory = Math.ceil(obj.count / payload);
-            rep += "<td align='left'>ItemHistory " + counterHistory + " of " + pagesHistory;
-            rep += "<td align='left'></td>";
-            rep += "<td align='right'><h5><a onclick='previousHistory()' class='my-link'>&laquo Previous</a></h5></td>";
-            rep += "<td align='right'><h5><a onclick='nextHistory()' class='my-link'>Next &raquo</a></h5></td>";
-            rep += "</tr>";
-            rep += "</table>";
+
+            rep = "</table>";
             rep += "<table class='table-filled' border='2' width=\"100%\">";
             rep += "<tr>";
             rep += "<th>Itemname</th>";
@@ -601,20 +589,19 @@ async function sendItemHistory(){
     }
 }
 
-function ItemHistory(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/itemhistory?storecode="+ sessionStorage.getItem("storecode") 
-            + "&username="+ sessionStorage.getItem("username") + "&id="+
-            id +"&start="+ startHistory +"&size="+ sizeHistory ,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function ItemHistory(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/itemhistory?storecode=" + sessionStorage.getItem("storecode")
+            + "&username=" + sessionStorage.getItem("username") + "&id=" +
+            id + "&start=" + startHistory + "&size=" + sizeHistory, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 async function sendSeachStock(){
@@ -674,20 +661,19 @@ async function sendSeachStock(){
     }
 }
 
-function searchItems(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/search?storecode="+
-            sessionStorage.getItem('storecode')+"&username="+
-            sessionStorage.getItem('username')+"&barcode="+document.getElementById('barcode').value,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function searchItems(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/search?storecode=" +
+            sessionStorage.getItem('storecode') + "&username=" +
+            sessionStorage.getItem('username') + "&barcode=" + document.getElementById('barcode').value, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 async function sendPendingUpdates(){
@@ -746,20 +732,19 @@ async function sendPendingUpdates(){
     }
 }
 
-function pendingUpdates(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/pending/updates?storecode="+
-            sessionStorage.getItem('storecode')+"&username="+
-            sessionStorage.getItem('username')+"&deleted=false",{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function pendingUpdates(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/pending/updates?storecode=" +
+            sessionStorage.getItem('storecode') + "&username=" +
+            sessionStorage.getItem('username') + "&deleted=false", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 async function sendUpdatesHistory(){
@@ -818,20 +803,30 @@ async function sendUpdatesHistory(){
     }
 }
 
-function updatesHistory(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/pending/updates?storecode="+
-            sessionStorage.getItem('storecode')+"&username="+
-            sessionStorage.getItem('username')+"&deleted=true",{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function updatesHistory(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/stockitems/pending/updates?storecode=" +
+            sessionStorage.getItem('storecode') + "&username=" +
+            sessionStorage.getItem('username') + "&deleted=true", {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 
+function toggleSidebar() {
+    const sidebar = document.querySelector('.main-side');
+    const mainContainer = document.querySelector('.main-container');
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        mainContainer.style.marginLeft = '260px';
+    } else {
+        mainContainer.style.marginLeft = '0';
+    }
+}

@@ -68,22 +68,21 @@ async function SendSales(){
         }
     }
 }
-function sales(){
+async function sales(){
     const url = sessionStorage.getItem("host") + "/api/v1/sales/daily?storecode="+
         sessionStorage.getItem('storecode')+"&saleDate="+
         document.getElementById('date').value + "&username="+ sessionStorage.getItem('username')
 
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function CreateDailyGrouping() {
     var newMessage = "<div class=\"form-layout\">\n" +
@@ -151,22 +150,21 @@ async function SendDailyGrouping(date){
         }
     }
 }
-function dailyGrouping(date){
+async function dailyGrouping(date){
     const url = sessionStorage.getItem("host") + "/api/v1/sales/daily/grouping?storecode="+
         sessionStorage.getItem('storecode') + "&username=" + sessionStorage.getItem('username')
         +"&saleDate=" + date;
     //console.log(url);
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function CreateDailyUserSummary() {
     var newMessage = "<div class=\"form-layout\">\n" +
@@ -233,21 +231,20 @@ async function sendNewDailySummary(){
         }
     }
 }
-function newDailUserSummarysales(){
+async function newDailUserSummarysales(){
     const url = sessionStorage.getItem("host") + "/api/v1/sales/daily/user/summary?storecode="+
             sessionStorage.getItem('storecode')+"&username="+
             sessionStorage.getItem('username')+"&saleDate="+document.getElementById('date').value;
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function createDailyProfit() {
     var newMessage = "<div class=\"form-layout\">\n" +
@@ -325,21 +322,20 @@ async function sendDailyProfit(){
         }
     }
 }
-function dailyProfit(){
+async function dailyProfit(){
     const url = sessionStorage.getItem("host") + "/api/v1/sales/profit?storecode="+
             sessionStorage.getItem('storecode')+"&username="+
             sessionStorage.getItem('username')+"&saleDate="+ document.getElementById('date').value;
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function CreateDailyBank() {
     var newMessage = "<div class=\"form-layout\">\n" +
@@ -405,21 +401,20 @@ async function sendDailyBank(){
         }
     }
 }
-function detailedBank(){
+async function detailedBank(){
     const url = sessionStorage.getItem("host") + "/api/v1/bank/daily?storecode="+
             sessionStorage.getItem('storecode')+"&username="+
             sessionStorage.getItem('username')+"&saleDate="+document.getElementById('date').value;
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function createDailyBankSummary() {
     var newMessage = "<div class=\"form-layout\">\n" +
@@ -488,21 +483,20 @@ async function sendBankSummary(){
         }
     }
 }
-function BankSummary(){
+async function BankSummary(){
     const url = sessionStorage.getItem("host") + "/api/v1/bank/grouping?storecode="+
             sessionStorage.getItem('storecode')+"&username="+
             sessionStorage.getItem('username')+"&saleDate="+ document.getElementById('date').value;
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function dateChange(){
     const date = document.getElementById('dateDailyGrouping').value;
@@ -578,20 +572,32 @@ async function sendAnnualIncome(){
         }
     }
 }
-function annualIncome(){
+async function annualIncome(){
     const url = sessionStorage.getItem("host") + "/api/v1/income/annual?storecode="+
             sessionStorage.getItem('storecode')+"&username="+
             sessionStorage.getItem('username')+"&year="+ document.getElementById('txtyear').value;    
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
+
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.main-side');
+    const mainContainer = document.querySelector('.main-container');
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        mainContainer.style.marginLeft = '260px';
+    } else {
+        mainContainer.style.marginLeft = '0';
+    }
+}

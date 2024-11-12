@@ -20,6 +20,11 @@ html, body {
     scrollbar-width: none;     
 }
 
+
+a {
+    color: white;
+}
+
 body::-webkit-scrollbar {
     display: none;
 }
@@ -74,6 +79,11 @@ nav {
     margin: 0 30px;
     cursor: pointer;
     transition: all .50s ease-in;
+}
+
+.business.navbar-links a {
+    font-size: 14px;
+
 }
 
 .navbar-links a:hover {
@@ -151,6 +161,35 @@ nav {
 
 .footer p {
     margin: 0;
+}
+
+
+/* Logout Button Styles */
+.logout-btn {
+    display: inline-block;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.logout-btn a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff4d4d; /* Red background */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.logout-btn a:hover {
+    background-color: #e60000; /* Darker red on hover */
+    transform: scale(1.05); /* Slight zoom on hover */
+}
+
+.logout-btn a:active {
+    background-color: #cc0000; /* Even darker red when clicked */
+    transform: scale(0.98); /* Slightly shrink on click */
 }
 
 

@@ -7,20 +7,19 @@
     <meta name="viewport"
           content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="/css/min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="/css/business.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     <title>Smart-POS | MkokoComputers</title>
     <link rel = "icon" href ="/img/icon.png" type = "image/x-icon">
 </head>
 
 <body onload="StoreSettings()">
 <section class="main">
+    <button id="sidebarToggle" class="sidebar-toggle" onclick="toggleSidebar()">
+        <span class="material-icons">menu</span>
+    </button>
     <div class="main-side">
         <div class="side-card">
-            <div class="side-card-header">
-                Menu
-                <span class="material-icons">menu</span>
-            </div>
             <div class="side-card-body">
                 <p><a onclick="StoreSettings()" class="my-link">Profile</a></p>
                 <p><a onclick="SendBankList()" class="my-link">Bank(s)</a></p>

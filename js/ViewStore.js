@@ -284,21 +284,20 @@ async function sendLoad() {
     }    
 }
 
-function load(){
+async function load(){
     const url = sessionStorage.getItem("host") + "/api/v1/stockitems/view/store?storecode="+
         sessionStorage.getItem("storecode") + "&start="+
         start + "&size="+ size;    
-    return fetch(url,{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 
 

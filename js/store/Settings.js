@@ -4,62 +4,50 @@ function StoreSettings() {
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"continent\">Continent</label>\n" +
         "                    <input type=\"text\" id=\"continent\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">store</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"country\">Country</label>\n" +
         "                    <input type=\"text\" id=\"country\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"province\">Provice</label>\n" +
         "                    <input type=\"text\" id=\"province\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"town\">Town</label>\n" +
         "                    <input type=\"text\" id=\"town\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"location\">Location</label>\n" +
         "                    <input type=\"text\" id=\"location\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"industry\">Industry</label>\n" +
         "                    <input type=\"text\" id=\"industry\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"phone\">Phone</label>\n" +
         "                    <input type=\"text\" id=\"phone\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"fax\">Fax</label>\n" +
         "                    <input type=\"text\" id=\"fax\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"email\">Email</label>\n" +
         "                    <input type=\"text\" id=\"email\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"website\">Website</label>\n" +
         "                    <input type=\"text\" id=\"website\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"taxnumber\">TaxNumber</label>\n" +
         "                    <input type=\"text\" id=\"taxnumber\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"storePackage\">Package</label>\n" +
         "                    <input type=\"text\" id=\"storePackage\" aria-describedby=\"info\" disabled>\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <input type=\"button\" value=\"Update\" onclick=\"SendSaveDetails()\">\n" +
         "            </form>\n" +
@@ -72,32 +60,26 @@ function CreateBank() {
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"accountHolder\">AccountHolder</label>\n" +
         "                    <input type=\"text\" id=\"accountHolder\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">place</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"accountNumber\">AccountNumber</label>\n" +
         "                    <input type=\"text\" id=\"accountNumber\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"accountType\">AccountType</label>\n" +
         "                    <input type=\"text\" id=\"accountType\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"bank\">Bank</label>\n" +
         "                    <input type=\"text\" id=\"bank\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"branch\">Branch</label>\n" +
         "                    <input type=\"text\" id=\"branch\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"paymentRef\">PaymentRef</label>\n" +
         "                    <input type=\"text\" id=\"paymentRef\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <input type=\"submit\" id='sendBank' value=\"Save\" onclick=\"SaveBank()\">\n" +
         "            </form>\n" +
@@ -114,6 +96,7 @@ function CreateBank() {
 async function SendBankList(){
     const obj = await BankList();
     if(obj.success == true){
+        
         rep = "<table class='table-filled' border='2' width=\"100%\">\n"+
             "        <tr>\n" +
             "            <td>CreatedDate</td>\n" +
@@ -144,19 +127,18 @@ async function SendBankList(){
         document.getElementById("main-container").innerHTML = rep;
     }
 }
-function BankList(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/store/bank/details/get?username="+
-        sessionStorage.getItem("username") + "&storecode="+ sessionStorage.getItem("storecode"),{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function BankList(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/store/bank/details/get?username=" +
+            sessionStorage.getItem("username") + "&storecode=" + sessionStorage.getItem("storecode"), {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 async function SendDeleteBank(id){
     const obj = await DeleteBank(id);
@@ -164,20 +146,19 @@ async function SendDeleteBank(id){
         SendBankList();
     }
 }
-function DeleteBank(id){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/store/bank/details/remove?username="+
-        sessionStorage.getItem("username") + "&storecode="+
-        sessionStorage.getItem("storecode") + "&bankId="+ id,{
-        method: "DELETE",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function DeleteBank(id){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/store/bank/details/remove?username=" +
+            sessionStorage.getItem("username") + "&storecode=" +
+            sessionStorage.getItem("storecode") + "&bankId=" + id, {
+            method: "DELETE",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function CreatePackage() {
     var rep;
@@ -249,19 +230,18 @@ async function SendFetchDetails(){
         document.getElementById("storePackage").value = obj.data.storePackage;
     }
 }
-function FetchDetails(){
-    return fetch(sessionStorage.getItem("host") + "/api/v1/general/store/settings/get?strorecode="+
-        sessionStorage.getItem("storecode"),{
-        method: "GET",
-        headers: {"Content-Type" : "application/json"}
-    })
-        .then(response=>response.json())
-        .then(data=>{
-            return data;
-        })
-        .catch(error =>{
-            console.error("error:", error.message);
-        })
+async function FetchDetails(){
+    try {
+        const response = await fetch(sessionStorage.getItem("host") + "/api/v1/general/store/settings/get?strorecode=" +
+            sessionStorage.getItem("storecode"), {
+            method: "GET",
+            headers: { "Content-Type": "application/json" }
+        });
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("error:", error.message);
+    }
 }
 function StoreSettings() {
     var updateItem = "<div class=\"form-layout\">\n" +
@@ -269,62 +249,50 @@ function StoreSettings() {
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"continent\">Continent</label>\n" +
         "                    <input type=\"text\" id=\"continent\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">store</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"country\">Country</label>\n" +
         "                    <input type=\"text\" id=\"country\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"province\">Provice</label>\n" +
         "                    <input type=\"text\" id=\"province\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"town\">Town</label>\n" +
         "                    <input type=\"text\" id=\"town\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"location\">Location</label>\n" +
         "                    <input type=\"text\" id=\"location\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"industry\">Industry</label>\n" +
         "                    <input type=\"text\" id=\"industry\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"phone\">Phone</label>\n" +
         "                    <input type=\"text\" id=\"phone\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"fax\">Fax</label>\n" +
         "                    <input type=\"text\" id=\"fax\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"email\">Email</label>\n" +
         "                    <input type=\"text\" id=\"email\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"website\">Website</label>\n" +
         "                    <input type=\"text\" id=\"website\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"taxnumber\">TaxNumber</label>\n" +
         "                    <input type=\"text\" id=\"taxnumber\" aria-describedby=\"info\">\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <div class=\"igroup\">\n" +
         "                    <label for=\"storePackage\">Package</label>\n" +
         "                    <input type=\"text\" id=\"storePackage\" aria-describedby=\"info\" disabled>\n" +
-        "                    <span class=\"material-icons\">location</span>\n" +
         "                </div>\n" +
         "                <input type=\"submit\" id='sendSettings' value=\"Update\" onclick=\"SaveDetails()\">\n" +
         "            </form>\n" +
@@ -390,4 +358,17 @@ async function SaveDetails(){
         return error;
     }
 
+}
+
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.main-side');
+    const mainContainer = document.querySelector('.main-container');
+    sidebar.classList.toggle('open');
+
+    if (sidebar.classList.contains('open')) {
+        mainContainer.style.marginLeft = '260px';
+    } else {
+        mainContainer.style.marginLeft = '0';
+    }
 }

@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+body::-webkit-scrollbar {
+    width: 12px;
+    background-color: #f0f0f0;
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+    border: 3px solid #f0f0f0;
+}
+
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+.sidebar-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 0 6px;
+    border-radius: 20%;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+
+.sidebar-toggle:focus {
+    outline: none;
+}
+
+
+.main {
+    display: flex;
+    flex-direction: row;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+
+.main-side {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 260px;
+    display: flex;
+    overflow-x: hidden;
+    flex-direction: column;
+    background: #010120;
+    padding: 25px 20px;
+    transition: transform 0.4s ease;
+    transform: translateX(-100%);
+}
+
+.main-side.open {
+    transform: translateX(0);
+}
+
+
+
+.side-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.side-card-body a {
+    display: block;
+    padding: 0px 25px;
+    margin: 12px 0;
+    transition: all .50s ease-in;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+
+}
+
+.side-card-body a:hover {
+    color: rgb(243, 209, 146);
+}
+
+.main-container {
+    flex: 3;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 0;
+    transition: margin-left 0.5s ease;
+}
+
+.main-side.open+.main-container {
+    margin-left: 260px;
+}
+
+.side-card-body {
+    margin-top: 40px;
+}
+
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    .main-container {
+        margin-left: 0;
+        padding: 1rem;
+    }
+}
+
+
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #0073e6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.table-filled {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.table-filled th {
+    background-color: #010120;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+.table-filled td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.table-filled tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.table-filled tr:hover {
+    background-color: #e6f7ff;
+}
+
+.my-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+
+.my-paging {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.my-paging td {
+    padding: 10px;
+}
+
+.form-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f7f7f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: auto;
+}
+
+.login-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.igroup {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.igroup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.igroup input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    padding-left: 40px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.igroup input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.igroup .material-icons {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+#btnAdd {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#btnAdd:hover {
+    background-color: #0056b3;
+}
+
+#btnSearch {
+    margin-top: 12px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#btnSearch:hover {
+    background-color: #0056b3;
+}
+
+.igroup textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    resize: vertical;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.igroup textarea:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.login-form input[type="submit"],
+#btnRefresh {
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.login-form input[type="submit"]:hover,
+#btnRefresh:hover {
+    background-color: #0056b3;
+}
+
+.igroup {
+    margin-bottom: 15px;
+}
+
+.igroup input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    color: #333;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.igroup input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}

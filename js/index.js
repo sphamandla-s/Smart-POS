@@ -35,14 +35,12 @@ function NewsFeed() {
     document.getElementById('frame-container').innerHTML = myStoreFrame;
 }
 
-// JavaScript to toggle navbar on mobile
 document.querySelector(".navbar-toggle").addEventListener("click", function() {
     const menu = document.querySelector(".navbar-links"); 
     const toggleIcon = document.querySelector(".navbar-toggle"); 
     
     menu.classList.toggle("open"); 
 
-    // Update the icon based on the menu state
     if (menu.classList.contains("open")) {
         toggleIcon.innerHTML = "&times;";
     } else {
