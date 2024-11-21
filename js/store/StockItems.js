@@ -92,7 +92,7 @@ function createSearchItem() {
         "                    <label for=\"barcode\">SearchItem(Barcode)</label>\n" +
         "                    <input type=\"text\" id=\"barcode\" aria-describedby=\"info\">\n" +
         "                    <span class=\"material-icons\">location</span>\n" +
-        "                <input type=\"submit\" id='btnSearch' value=\"Search\" onclick=\"sendSeachStockItems()\">\n" +
+        "                <input type=\"submit\" id='btnSearch' value=\"Search\" onclick=\"sendSeachStock()\">\n" +
         "            </form>\n" +
         "        </div>";
     document.getElementById("main-container").innerHTML = addItem;
@@ -510,7 +510,7 @@ async function stockItems(){
         console.error("error:", error.message);
     }
 }
-var id="";
+var id=0;
 var startHistory = 0;
 var counterHistory = 1;
 var pagesHistory = 0;

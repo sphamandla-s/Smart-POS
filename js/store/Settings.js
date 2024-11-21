@@ -96,7 +96,6 @@ function CreateBank() {
 async function SendBankList(){
     const obj = await BankList();
     if(obj.success == true){
-        
         rep = "<table class='table-filled' border='2' width=\"100%\">\n"+
             "        <tr>\n" +
             "            <td>CreatedDate</td>\n" +

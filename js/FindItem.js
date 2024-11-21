@@ -5,7 +5,7 @@ function viewStore(id) {
 }
 var tmp = 1;
 var payload = 30;
-var pages;
+var pages =0;
 var start = 0;
 var size = payload;
 var counter = 0;
@@ -39,7 +39,7 @@ async function sendFindItem() {
     let rep = "";
 
     if (obj.success === true) {
-        const pages = Math.ceil(obj.count / payload);
+        pages = Math.ceil(obj.count / payload);
         const a = counter + tmp;
 
         let pageInfo = `<div class="pagination">
